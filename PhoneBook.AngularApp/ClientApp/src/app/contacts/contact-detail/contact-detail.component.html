@@ -1,0 +1,32 @@
+<div class="row">
+    <div class="h2 tableLabel" *ngIf="addMode">Add Contact</div>
+    <div class="h2 tableLabel" *ngIf="!addMode">Edit Contact</div>
+</div>
+<div class="row mt-4 border border-3 p-3 rounded-top rounded-bottom">
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="form-row mb-3">
+            <div class="form-group col">
+                <label class="form-label">First Name</label>
+                <input type="text" formControlName="firstName" class="form-control form-control-lg" /><br />
+            </div>
+        </div>
+        <div class="form-row mb-3">
+            <div class="form-group col">
+                <label class="form-label">Last Name</label>
+                <input type="text" formControlName="lastName" class="form-control form-control-lg" /><br />
+            </div>
+        </div>
+
+        <div class="form-row mb-3">
+            <div class="form-group col">
+                <label class="form-label">Telephone</label>
+                <input type="text" formControlName="telephone" class="form-control form-control-lg" /><br />
+            </div>
+        </div>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <button type="submit" class="btn btn-lg btn-primary me-2">Submit</button>
+            <button type="button" class="btn btn-lg btn-outline-secondary" [routerLink]="['/contacts']">Cancel</button>
+        </div>
+    </form>
+</div>

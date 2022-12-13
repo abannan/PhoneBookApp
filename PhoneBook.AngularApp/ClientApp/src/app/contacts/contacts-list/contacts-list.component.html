@@ -1,0 +1,33 @@
+<div class="row">
+    <div class="h2 tableLabel col-6">Contacts</div>
+    <div class="h2 col-6 text-end">
+        <a type="button" class="btn btn-primary btn-lg" [routerLink]="['/contactdetail']"><i class="fa-solid fa-plus mx-1"></i>Add Contact</a>
+    </div>
+</div>
+<div class="row mt-4">
+    <input class="form-control form-control-lg" type="text" placeholder="Search for contact by last name..." aria-label="criteria" [ngModel]="searchCriteria" (ngModelChange)="handleSearch($event)">
+</div>
+<div class="row mt-4 bg-white" *ngIf="contactList.length > 0; else noRecordsFound">
+    <div *ngFor="let contact of contactList; let idx = index" [ngClass]="{ 'border border-1 rounded-top col-12' : idx === 0, 'border border-1 rounded-bottom col-12': idx === contactList.length -1, 'border border-1 col-12': true }">
+        <div class="row p-3" role="button" tabindex="0" (click)="handleRowClick(contact)">
+            <div class="col-8">
+                <div class="h3">{{ contact.firstName }} {{ contact.lastName }}</div>
+                <div class="h6 text-black-50"><i class="fa-solid fa-phone mx-1"></i>{{ contact.contactDetails[0].contactValue }}</div>
+            </div>
+            <div class="col-4 d-flex justify-content-end align-items-center">
+                <button type="button" class="btn btn-danger btn-lg"><i class="fa-solid fa-trash-can" (click)="handleDelete(contact);$event.stopPropagation();"></i></button>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="row">
+
+    <ng-template #noRecordsFound>
+        <div class="row mt-4">
+            <p *ngIf="refreshed === 0" class="fs-3"><em>Loading...</em></p>
+            <p *ngIf="refreshed === 1" class="fs-3"><em>No contacts found.</em></p>
+        </div>
+    </ng-template>
+</div>
