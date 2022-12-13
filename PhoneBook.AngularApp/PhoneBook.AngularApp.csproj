@@ -23,6 +23,7 @@
 
   <ItemGroup>
     <Folder Include="ClientApp\src\app\contacts\contact-detail\" />
+    <Folder Include="Controllers\" />
   </ItemGroup>
 
   <ItemGroup>
