@@ -17,3 +17,11 @@ The WebApi appsettings.json contains a connection string called PhoneBookContext
 When the PhoneBook database is created at first run, an Application User row needs adding, just the created/updated dates.
 
 The Application User Id used in several places (hardcoded for now) needs to be change from 1 if adding the row creates an Id that isn't 1
+
+## Web Api
+
+This has been coded so that the Swagger interface can be used for testing.
+
+## Angular App
+
+This has the URL of the web api set in the ClientApp\src\environments\environment.ts file
